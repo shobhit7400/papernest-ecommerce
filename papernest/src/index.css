@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{margin:0;@apply bg-sheet text-ink font-body text-base leading-relaxed;}
+h1,h2,h3,.font-display{font-family:'Bricolage Grotesque',system-ui,sans-serif;letter-spacing:-.02em}
+:focus-visible{outline:3px solid #17233F;outline-offset:2px}
+.btn{@apply inline-flex items-center justify-center rounded-xl bg-ink px-5 py-3 font-display font-bold text-paper transition hover:-translate-y-0.5 hover:bg-[#2a3a62] disabled:opacity-40}
+.btn-ghost{@apply inline-flex items-center justify-center rounded-xl border border-ink px-5 py-3 font-display font-bold text-ink transition hover:bg-ink hover:text-paper}
+.input{@apply w-full rounded-xl border border-rule bg-white px-3 py-2 text-ink outline-none transition focus:border-ink focus:ring-2 focus:ring-ink/10}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+@keyframes logoEntry {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.logo-entry {
+  animation: logoEntry 0.7s ease-out both;
+}
+@keyframes navEntry {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-entry {
+  opacity: 0;
+  animation: navEntry 0.5s ease-out forwards;
+}
+
+.nav-entry:nth-child(1) { animation-delay: 0.15s; }
+.nav-entry:nth-child(2) { animation-delay: 0.25s; }
+.nav-entry:nth-child(3) { animation-delay: 0.35s; }
+.nav-entry:nth-child(4) { animation-delay: 0.45s; }
+/* HERO TEXT ANIMATION */
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-up {
+  opacity: 0;
+  animation: heroFadeUp 0.7s ease-out forwards;
+}
+
+.hero-delay-1 { animation-delay: 0.15s; }
+.hero-delay-2 { animation-delay: 0.30s; }
+.hero-delay-3 { animation-delay: 0.45s; }
+.hero-delay-4 { animation-delay: 0.60s; }
+
+
+/* HERO PRODUCT CARDS ANIMATION */
+@keyframes heroCardEntry {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.hero-card-entry {
+  opacity: 0;
+  animation: heroCardEntry 0.8s ease-out 0.35s forwards;
+}

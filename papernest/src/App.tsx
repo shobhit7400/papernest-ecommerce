@@ -1,0 +1,6 @@
+import { useEffect, useState } from 'react'
+import { Header, Footer, Toast } from './components'
+import { About, Admin, Cart, Checkout, Contact, Home, Orders, Policies, ProductPage, Shop, Wishlist } from './pages'
+
+function useHash(){const[h,setH]=useState(location.hash.slice(1)||'/');useEffect(()=>{const f=()=>{setH(location.hash.slice(1)||'/');window.scrollTo(0,0)};window.addEventListener('hashchange',f);return()=>window.removeEventListener('hashchange',f)},[]);return h}
+export default function App(){const hash=useHash();const[path,query='']=hash.split('?');let page:any=<Home/>;if(path==='/shop')page=<Shop query={query}/>;else if(path.startsWith('/product/'))page=<ProductPage id={path.split('/')[2]}/>;else if(path==='/wishlist')page=<Wishlist/>;else if(path==='/cart')page=<Cart/>;else if(path==='/checkout')page=<Checkout/>;else if(path==='/orders')page=<Orders query={query}/>;else if(path==='/about')page=<About/>;else if(path==='/contact')page=<Contact/>;else if(path==='/policies')page=<Policies/>;else if(path==='/admin')page=<Admin/>;else if(path!=='/')page=<section className="mx-auto max-w-7xl px-5 py-20"><h1 className="font-display text-5xl font-extrabold">Page not found</h1><a className="btn mt-6" href="#/">Back home</a></section>;return <><Header/><main>{page}</main><Footer/><Toast/></>}
